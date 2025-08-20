@@ -1,0 +1,142 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.dashboard{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: v.$gris-claro;
+
+    &__header{
+        background-color: darken(v.$secundario, 20);
+        padding: 2rem;
+        height: 10rem;
+    }
+
+    &__header-grid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include m.tablet{
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__logo-imagen{
+        @include m.logo;
+        @include m.texto-fluido(2rem, 3rem);
+         transform: translateY(-5rem); // o el valor que necesites
+    }
+
+    &__nav{
+
+    }
+
+    &__form{
+        display: flex;
+        justify-content: center;
+    }
+
+    &__submit--logout{
+        @include m.enlace;
+        color: v.$azul;
+        transform: translateY(-2rem);
+        font-size: 2rem;
+
+        &:hover{
+            color: darken(v.$azul, 20);
+        }
+    }
+
+    &__grid{
+        display: flex;
+        flex: 1;
+    }
+
+    &__sidebar{
+        background-color: darken(v.$secundario, 20);
+        width: 12rem;
+    }
+
+    &__menu{
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+    }
+
+    &__enlace{
+        color: v.$azul;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        transition: 300ms background-color ease-in-out, 300ms color ease-in-out, 300ms border-radius ease-in-out;
+
+        &:hover,
+        &--actual{
+            background-color: lighten(v.$azul, 8);
+            color: v.$secundario;
+            border-radius: 1rem;
+            margin: 0;
+        }
+    }
+
+    &__icono{
+        font-size: 3rem;
+        margin-top: 1rem;
+    }
+
+    &__menu-texto{
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        font-weight: v.$bold;
+        margin-top: 0.5rem;
+    }
+
+    &__contenido{
+        padding: 1rem 1rem 3rem 2rem;
+        width: 100%;
+        @include m.tablet{
+            padding: 1rem 5rem 3rem 5rem;
+        }
+    }
+
+    &__contenedor-boton{
+        @include m.tablet{
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 5rem;
+        }
+    }
+    
+    &__boton{
+        @include m.boton(v.$azul, v.$secundario);
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        margin-right: 1rem;
+        @include m.tablet{
+            width: auto;
+        }
+    }
+
+    &__contenedor{
+        @include m.shadow; 
+        background-color: v.$blanco;
+        padding: 2rem;
+        border-radius: 1rem;
+    }
+
+    &__formulario{
+        @extend .dashboard__contenedor;
+        @include m.contenedor-md;
+    }
+
+    &__filtro{
+        max-width: 25%;
+    }
+    
+}

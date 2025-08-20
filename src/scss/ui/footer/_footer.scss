@@ -1,0 +1,50 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.footer {
+  background-color: v.$secundario;
+  color: v.$azul;
+  padding: 2rem 2rem;
+  margin-top: 0;
+
+  &__grid {
+    @include m.grid(1, 1rem);  // 1 columna por defecto (móvil)
+    justify-content: center;   // Centra horizontalmente el contenido
+    text-align: center;        // Opcional: centra el texto también
+
+    @include m.tablet {
+      @include m.grid(4, 1rem); // 4 columnas en tablet
+      justify-content: initial; // o 'start' si no quieres centrado en desktop
+      text-align: left;         // Opcional: alinea el texto a la izquierda en desktop
+    }
+
+    @include m.contenedor; // Mueve esto dentro de __grid
+  }
+
+  &__titulo {
+    margin: 0 0 1rem 0;
+    padding: 0;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: v.$azul;
+    text-transform: uppercase;
+  }
+
+  &__ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__lista {
+    margin-bottom: 0.6rem;
+    font-size: 2rem;
+    color: v.$azul;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: rgba(v.$azul, 0.6); // Color de acento al pasar el mouse
+    }
+  }
+}

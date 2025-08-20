@@ -1,0 +1,47 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.paginado {
+  display: flex;
+  justify-content: center;  /* Centrar horizontalmente */
+  flex-wrap: wrap;          /* Que los enlaces puedan saltar línea si no caben */
+  gap: 1rem;                /* Separación entre enlaces */
+  margin: 3rem 0;           /* Margen arriba y abajo */
+  font-family: Arial, sans-serif;
+
+  &__enlace {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    background-color: #eee;
+    color: #333;
+    text-decoration: none;
+    border-radius: 0.4rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    user-select: none;
+  }
+
+  &__enlace:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+  }
+
+  &__enlace.activo {
+    background-color: v.$azul; /* Azul primario */
+    color: v.$secundario;
+    cursor: default;
+    border-color: v.$azul;
+    pointer-events: none; /* No permitir click en página activa */
+  }
+
+  // Mostrar números solo en pantallas grandes
+  &__numero {
+    display: none;
+
+    @include m.tablet {
+      display: inline-block;
+    }
+  }
+}

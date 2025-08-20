@@ -1,0 +1,80 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.proyectos__heading {
+        color: v.$azul;
+        text-transform: uppercase;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+}
+
+/* Contenedor de la lista */
+.lista-proyectos {
+    @include m.contenedor;
+    @include m.grid(1, 2rem);
+
+    @include m.tablet{
+        @include m.grid(3, 2rem);
+    }
+        
+}
+
+/* Tarjeta de cada proyecto */
+.proyecto-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 75rem;
+    margin-bottom: 2rem;
+}
+
+.proyecto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Imagen */
+.proyecto-imagen {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.proyecto__imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.proyecto-card:hover .proyecto__imagen {
+    transform: scale(1.05);
+}
+
+/* Información */
+.proyecto-info {
+    padding: 1.2rem 1.5rem;
+}
+
+.proyecto-info h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: v.$azul;
+}
+
+.proyecto-info ul {
+    font-size: 1.7rem;
+    color: v.$negro;
+    text-align: left;
+    padding: 2rem;
+
+
+    @include m.tablet {
+        font-size: 1.9rem;
+    }
+}

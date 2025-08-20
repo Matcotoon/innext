@@ -1,0 +1,140 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.barra {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(red(v.$secundario), green(v.$secundario), blue(v.$secundario), 0.98);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &__contenido {
+    @include m.contenedor;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 10rem;
+    gap: 1rem;
+    position: relative;
+
+    @include m.desktop {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+  }
+
+  &__logo-imagen {
+    @include m.logo;
+    @include m.texto-fluido(1rem, 2rem);
+    height: 12rem;
+    margin-bottom: 0;
+
+    @include m.tablet {
+      height: 14rem;
+      width: auto;
+      display: block;
+    }
+  }
+
+  &__toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 5rem;
+    height: 5rem;
+    padding: 0;
+    margin-left: auto;  // que quede a la derecha
+
+    span {
+      display: block;
+      height: 0.5rem;
+      background-color: v.$azul;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    @include m.desktop {
+      display: none; // Ocultar en desktop
+    }
+  }
+
+  .navegacion {
+    display: none; // Ocultar menú en móvil
+
+    @include m.desktop {
+      display: flex;
+      gap: 2rem;
+      margin-left: 2rem;
+    }
+
+    &__enlace {
+      color: v.$azul;
+      font-size: 2.2rem;
+      font-weight: v.$black;
+      text-transform: uppercase;
+      text-align: center;
+      transition: background-color 0.5s ease, color 0.5s ease;
+
+      &--actual,
+      &:hover {
+        background-color: v.$azul;
+        color: v.$secundario;
+      }
+    }
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 10rem;
+  right: -100%; // fuera de pantalla inicialmente
+  width: 75%;
+  max-width: 30rem;
+  height: 100vh;
+  background-color: v.$secundario;
+  z-index: 999;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+
+  &.activo {
+    right: 0; // entra al hacer clic
+  }
+
+  &__menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 2rem;
+
+      a {
+        color: v.$azul;
+        text-decoration: none;
+        font-size: 2.4rem;
+        font-weight: bold;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: v.$azul;
+        }
+      }
+    }
+  }
+
+  @include m.desktop {
+    display: none; // ocultar en escritorio
+  }
+}

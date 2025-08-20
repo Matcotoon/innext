@@ -1,0 +1,31 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%; /* Asegura el 100% del ancho */
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: v.$fuente_principal;
+    font-size: 1.8rem;
+    height: 100%;     /* Asegura el 100% del alto */
+    width: 100%;      /* Asegura el 100% del ancho */
+    margin: 0;        /* Elimina cualquier margen por defecto */
+    padding: 0;       /* Elimina cualquier padding por defecto */
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}

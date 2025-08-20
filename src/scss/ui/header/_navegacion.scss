@@ -1,0 +1,37 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+// MENÚ PRINCIPAL
+.navegacion {
+  display: none; // Oculto en móvil por defecto
+
+  @include m.desktop {
+    display: flex;           // Visible en desktop
+    flex-direction: row;
+    height: 100%;
+  }
+
+  flex-direction: column;
+  height: 100%;
+
+  &__enlace {
+    color: v.$azul;
+    font-size: 2.2rem;
+    padding: 1.5rem;
+    font-weight: v.$black;
+    text-transform: uppercase;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    transition: background-color 0.5s ease, color 0.5s ease;
+
+    &--actual,
+    &:hover {
+      background-color: v.$azul;
+      color: v.$secundario;
+    }
+  }
+}

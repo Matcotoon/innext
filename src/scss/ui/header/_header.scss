@@ -1,0 +1,212 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.header {
+    margin-top: 9rem;
+    min-height: 50rem;
+    background-image: url(../img/grafico.svg), url(../img/grafico.svg), linear-gradient(to right, rgba(v.$negro, 1), rgba(v.$negro, 0.5)), image-set(url(../img/header.avif) 1x, url(../img/header.webp) 1x, url(../img/header.jpg) 1x);
+
+    background-repeat: no-repeat;
+    background-size: 400px, 400px, cover, cover;   
+    background-position: top left, bottom right, center, center; 
+
+    position: relative; // necesario para el overlay
+
+    @include m.tablet{
+        margin-top: 9rem;
+        min-height: 70rem;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(v.$negro, 0.2); // overlay oscuro con transparencia
+        z-index: 1;
+    }
+
+    &__contenedor {
+        @include m.contenedor;
+        position: relative;
+        z-index: 2;
+
+    }
+
+    &__navegacion {
+        padding: 5rem 0;
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        @include m.tablet {
+            justify-content: flex-end;
+        }
+    }
+
+    &__texto{
+        color: v.$secundario;
+        font-size: 2.5rem;
+        font-weight: v.$black;
+        margin: 0;
+
+        @include m.tablet{
+            color: v.$secundario;
+            font-size: 5rem;
+            font-weight: v.$black;
+            margin: 0;
+        }
+    }
+
+    &__enlace {
+        @include m.enlace;
+    }
+
+    &__form{
+        display: flex
+    }
+
+    &__submit{
+        @extend .header__enlace;
+    }
+
+    &__contenido {
+        @include m.tablet {
+            padding-top: 5rem;
+        }
+        color: v.$secundario;
+        text-align: center;
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+        &__boton{
+        @include m.boton(v.$secundario, v.$azul);
+        margin-top: 2rem;
+        border-radius: 3rem;
+        text-transform: uppercase;
+        font-weight: v.$black;
+        font-size: 1.4rem;
+        margin-right: 1rem;
+        width: 60%;
+        margin-bottom: 3rem;
+        @include m.tablet{
+            width: auto;
+        }
+    }
+
+    /* Texto con efecto de escritura */
+    .escribiendo {
+        min-height: 3rem;
+        margin-top: 0;
+        font-weight: v.$black;
+        font-size: 2.5rem;
+        display: inline-block;
+        border-right: 2px solid v.$blanco;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: blink 0.7s infinite;
+
+        @include m.tablet{
+            min-height: 6rem;
+            margin-top: 0;
+            font-weight: v.$black;
+            font-size: 5rem;
+            display: inline-block;
+            border-right: 2px solid v.$blanco;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink 0.7s infinite;
+        }
+        
+    }
+
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+    }
+
+    .texto-adicional {
+            font-size: 2rem;
+            font-weight: v.$bold;
+            color: v.$secundario;
+            min-height: 5rem;       // Reserva el espacio desde el inicio
+            display: flex;
+            align-items: center;    // Centra verticalmente el texto dentro del espacio reservado
+            justify-content: center;
+            opacity: 0;             // Oculto inicialmente
+            transition: opacity 0.5s ease;
+
+            @include m.tablet{
+                font-size: 3rem;
+                font-weight: v.$bold;
+                color: v.$secundario;
+                min-height: 5rem;       // Reserva el espacio desde el inicio
+                display: flex;
+                justify-content: flex-start;    // Centra verticalmente el texto dentro del espacio reservado
+                opacity: 0;             // Oculto inicialmente
+                transition: opacity 0.5s ease;
+            }
+        }
+}
+
+/* Responsive ajustes */
+@include m.tablet {
+    .header__contenido {
+        text-align: left;
+
+        h1 {
+            font-size: 3rem;
+        }
+    }
+}
+
+.float {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  height: 60px;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none;
+}
+
+.float:hover {
+  color: #25d366;
+  background-color: #fff;
+}
+
+.my-float {
+  margin-right: 10px;
+  margin-top: 0;
+}
+
+.whatsapp-text {
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Ocultar el texto en pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .whatsapp-text {
+    display: none;
+  }
+
+  .float {
+    width: 60px;
+    justify-content: center;
+    padding: 0;
+  }
+}
