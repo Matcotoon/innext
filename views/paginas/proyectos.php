@@ -5,7 +5,7 @@
         <div class="proyecto-card">
             <div class="proyecto-imagen">
                 <img class="proyecto__imagen"
-                src="<?php echo $_ENV['HOST'] . '/img/proyectos/' . $proyecto->imagen; ?>.webp"
+                src="/../img/proyectos/<?php echo $proyecto->imagen; ?>"
                 alt="Imagen de <?php echo $proyecto->nombre; ?>">
             </div>
             <div class="proyecto-info">

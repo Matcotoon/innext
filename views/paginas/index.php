@@ -11,7 +11,8 @@
                         <h3 class="index__servicios-titulo--tarjeta"><?php echo $servicio->nombre; ?></h3>
                         <p class="index__servicios-descripcion"><?php echo $servicio->descripcion; ?></p>
                     </div>
-                    <img src="<?php echo $_ENV['HOST'] . '/img/servicios/' . $servicio->imagen1; ?>.webp" 
+                    <img src="../build/img/servicios/<?php echo $servicio->imagen1; ?>.webp"
+                         srcset="../build/img/servicios/<?php echo $servicio->imagen1; ?> 
                          alt="<?php echo $servicio->nombre; ?>" 
                          class="servicio__imagen">
                 </div>

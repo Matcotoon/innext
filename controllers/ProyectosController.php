@@ -34,7 +34,7 @@ class ProyectosController {
 
             //Leer imagen
             if(!empty($_FILES['imagen']['tmp_name'])){
-                $carpeta_imagenes = '../public/img/proyectos';
+                $carpeta_imagenes = '../public/build/img/proyectos';
 
                 //Crear la carpeta si no existe
                 if(!is_dir($carpeta_imagenes)){
@@ -113,7 +113,7 @@ class ProyectosController {
                 return;
             }
 
-            $carpeta_imagenes = '../public/img/proyectos';
+            $carpeta_imagenes = '../public/build/img/proyectos';
 
             // Leer nueva imagen
             if (!empty($_FILES['imagen']['tmp_name'])) {
@@ -183,7 +183,7 @@ class ProyectosController {
             $proyecto = Proyectos::find($id);
 
             if ($proyecto) {
-                $carpeta_imagenes = '../public/img/proyectos';
+                $carpeta_imagenes = '../public/build/img/proyectos';
                 $archivo_png = $carpeta_imagenes . '/' . $proyecto->imagen . '.png';
                 $archivo_webp = $carpeta_imagenes . '/' . $proyecto->imagen . '.webp';
 

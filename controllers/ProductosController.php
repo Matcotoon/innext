@@ -71,7 +71,7 @@ class ProductosController {
 
             //Leer imagen
             if(!empty($_FILES['imagen']['tmp_name'])){
-                $carpeta_imagenes = '../public/img/productos';
+                $carpeta_imagenes = '../public/build/img/productos';
 
                 //Crear la carpeta si no existe
                 if(!is_dir($carpeta_imagenes)){
@@ -213,7 +213,7 @@ class ProductosController {
             return;
         }
 
-        $carpeta_imagenes = '../public/img/productos';
+        $carpeta_imagenes = '../public/build/img/productos';
 
         // Procesar imagen si hay nueva
         if (!empty($_FILES['imagen']['tmp_name'])) {
@@ -288,7 +288,7 @@ public static function eliminar() {
 
                 if ($producto) {
                     // Eliminar imágenes del servidor
-                    $carpeta_imagenes = '../public/img/productos';
+                    $carpeta_imagenes = '../public/build/img/productos';
                     $archivo_png = $carpeta_imagenes . '/' . $producto->imagen . '.png';
                     $archivo_webp = $carpeta_imagenes . '/' . $producto->imagen . '.webp';
 

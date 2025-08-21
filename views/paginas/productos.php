@@ -36,9 +36,12 @@
                 <h4 class="catalogo__subcategoria"><?php echo $producto->subcategoria->nombre; ?></h4>
                 <h3 class="catalogo__nombre"><?php echo $producto->nombre; ?></h3>
 
-                <img class="catalogo__imagen"
-                    src="<?php echo $_ENV['HOST'] . '/img/productos/' . $producto->imagen; ?>.webp"
-                    alt="Imagen de <?php echo $producto->nombre; ?>">
+                <img class="catalogo__imagen" 
+                src="/build/img/productos/<?php echo $producto->imagen; ?>.webp"
+                srcset="/build/img/productos/<?php echo $producto->imagen; ?>.webp"
+                alt="Imagen de <?php echo $producto->nombre; ?>">
+
+
 
                 <button 
                     class="catalogo__boton" 

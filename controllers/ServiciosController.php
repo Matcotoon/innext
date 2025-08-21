@@ -58,7 +58,7 @@ class ServiciosController {
 
             //Leer imagen
             if(!empty($_FILES['imagen1']['tmp_name'])){
-                $carpeta_imagenes = '../public/img/servicios';
+                $carpeta_imagenes = '../public/build/img/servicios';
 
                 //Crear la carpeta si no existe
                 if(!is_dir($carpeta_imagenes)){
@@ -132,7 +132,7 @@ class ServiciosController {
             header('Location: /login');
         }
 
-            $carpeta_imagenes = '../public/img/servicios';
+            $carpeta_imagenes = '../public/build/img/servicios';
 
             // Leer nueva imagen
             if (!empty($_FILES['imagen1']['tmp_name'])) {
@@ -214,7 +214,7 @@ class ServiciosController {
 
                 if ($servicio) {
                     // Eliminar imágenes del servidor
-                    $carpeta_imagenes = '../public/img/servicios';
+                    $carpeta_imagenes = '../public/build/img/servicios';
                     $archivo_png = $carpeta_imagenes . '/' . $servicio->imagen1 . '.png';
                     $archivo_webp = $carpeta_imagenes . '/' . $servicio->imagen1 . '.webp';
 
