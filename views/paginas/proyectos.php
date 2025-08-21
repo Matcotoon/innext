@@ -4,8 +4,9 @@
     <?php foreach ($proyectos as $proyecto): ?>
         <div class="proyecto-card">
             <div class="proyecto-imagen">
-                <img class="proyecto__imagen"
-                src="/../img/proyectos/<?php echo $proyecto->imagen; ?>"
+                <img class="proyecto__imagen" 
+                src="/build/img/proyectos/<?php echo $proyecto->imagen; ?>.webp"
+                srcset="/build/img/proyectos/<?php echo $proyecto->imagen; ?>.webp"
                 alt="Imagen de <?php echo $proyecto->nombre; ?>">
             </div>
             <div class="proyecto-info">

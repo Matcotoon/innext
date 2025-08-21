@@ -8,7 +8,9 @@
             <select id="filtro-categoria" class="catalogo__select">
                 <option value="">-- Todas --</option>
                 <?php foreach($categorias as $categoria): ?>
-                    <option value="<?php echo $categoria->id; ?>"><?php echo $categoria->nombre; ?></option>
+                    <option value="<?php echo $categoria->id; ?>">
+                        <?php echo $categoria->nombre; ?>
+                    </option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -37,31 +39,27 @@
                 <h3 class="catalogo__nombre"><?php echo $producto->nombre; ?></h3>
 
                 <img class="catalogo__imagen" 
-                src="/build/img/productos/<?php echo $producto->imagen; ?>.webp"
-                srcset="/build/img/productos/<?php echo $producto->imagen; ?>.webp"
-                alt="Imagen de <?php echo $producto->nombre; ?>">
-
-
+                    src="/build/img/productos/<?php echo $producto->imagen; ?>.webp"
+                    alt="Imagen de <?php echo $producto->nombre; ?>">
 
                 <button 
                     class="catalogo__boton" 
                     type="button" 
                     data-producto-id="<?php echo $producto->id; ?>"
                     data-nombre="<?php echo htmlspecialchars($producto->nombre, ENT_QUOTES); ?>"
-                    data-imagen="<?php echo $_ENV['HOST'] . '/img/productos/' . $producto->imagen; ?>.webp"
-                    data-descripcion="<?php echo htmlspecialchars($producto->descripcion, ENT_QUOTES); ?>"
-                    >
+                    data-imagen="/build/img/productos/<?php echo $producto->imagen; ?>.webp"
+                    data-descripcion="<?php echo htmlspecialchars($producto->descripcion, ENT_QUOTES); ?>">
                     Ver Producto
-                    </button>
+                </button>
 
-                <!-- Descripción oculta para el modal -->
+                <!-- Descripción oculta -->
                 <p class="producto-descripcion" style="display: none;">
                     <?php echo $producto->descripcion; ?>
                 </p>
             </div>
         <?php endforeach; ?>
     </section>
-    </main>
+</main>
 
 <?php if($paginacion->total_paginas() > 1): ?>
     <div class="paginado">

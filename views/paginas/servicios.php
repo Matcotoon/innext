@@ -9,7 +9,7 @@
                     
                     <div class="servicios__flip">
                         <!-- Cara frontal con imagen de fondo -->
-                        <div class="servicios__front" style="background-image: url('<?php echo $_ENV['HOST'] . '/img/servicios/' . $servicio->imagen1; ?>.webp');">
+                        <div class="servicios__front" style="background-image: url('/build/img/servicios/<?php echo $servicio->imagen1; ?>.webp');">
                             <div class="servicios__front-contenido">
                                 <h3 class="servicios__nombre"><?php echo $servicio->nombre; ?></h3>
                                 <button class="servicios__boton">Ver más</button>
