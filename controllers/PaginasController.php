@@ -159,5 +159,15 @@ class PaginasController {
     ]);
 }
 
+public static function error(Router $router) {
+
+
+        // Renderizar la vista del formulario
+        $router->render('paginas/error', [
+        'titulo' => 'Pagina No Encontrada',
+        
+    ]);
+}
+
 
 }

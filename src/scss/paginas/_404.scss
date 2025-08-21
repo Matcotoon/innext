@@ -1,0 +1,18 @@
+@use 'base/variables' as v;
+
+
+.pagina_404{
+
+    &__contenedor{
+        text-align: center;
+        font-size: 2rem;
+        font-weight: v.$bold;
+        margin-bottom: 5rem;
+    }
+
+    &__enlace{
+        color: v.$azul;
+        font-size: 2rem;
+
+    }
+}
